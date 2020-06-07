@@ -4,9 +4,9 @@ metadata:
   name: jane
   namespace: dev
 subjects:
-  - kind: ServiceAccount
-    name: jane
-    namespace: dev
+- kind: ServiceAccount
+  name: jane
+  namespace: dev
 roleRef:
   kind: ClusterRole
   name: admin
