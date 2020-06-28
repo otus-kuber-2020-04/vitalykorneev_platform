@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web # Название нашего объекта Deployment
+  name: web
 spec:
-  replicas: 3 # Начнем с одного пода
-  selector: # Укажем, какие поды относятся к нашему Deployment:
-    matchLabels: # - это поды с меткой
-      app: web # app и ее значением web
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -23,9 +23,9 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 8000
-        readinessProbe:       # Добавим проверку готовности
-          httpGet:            # веб-сервера отдавать
-            path: /index.html # контент
+        readinessProbe:
+          httpGet:
+            path: /index.html
             port: 8000
         volumeMounts:
         - name: app
